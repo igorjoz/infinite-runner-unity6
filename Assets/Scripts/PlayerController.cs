@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
             boxCollider2D.bounds.size,
             0f,
             Vector2.down,
-            0.1f,
+            1.0f,
             whatIsGround
         );
 

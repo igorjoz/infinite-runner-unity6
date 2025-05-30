@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 102540457}
   - component: {fileID: 102540456}
   - component: {fileID: 102540455}
+  - component: {fileID: 102540458}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
@@ -250,13 +251,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 102540454}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.6612291, y: -1.681828, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.66, y: -2.43, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1077884801}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &102540458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102540454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f58a098a608e6e94aaf8cb2fee599fe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 2
 --- !u!1 &126078362
 GameObject:
   m_ObjectHideFlags: 0
@@ -1998,6 +2012,7 @@ Transform:
   - {fileID: 1813798678}
   - {fileID: 1437004055}
   - {fileID: 1617412889}
+  - {fileID: 102540457}
   m_Father: {fileID: 1336438950}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1077884802
@@ -2593,7 +2608,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -2617,7 +2632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7dfc263f2497445b0bd2c1faa9c7fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 8
+  jumpForce: 11
   liftingForce: 355
   jumped: 0
   doubleJumped: 0
@@ -4582,4 +4597,3 @@ SceneRoots:
   - {fileID: 1336438950}
   - {fileID: 1413475891}
   - {fileID: 766905972}
-  - {fileID: 102540457}

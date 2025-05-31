@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     private void FixedUpdate()
     {
         score += worldScrollingSpeed * 20 * Time.fixedDeltaTime;
+        //worldScrollingSpeed += 0.001f;
         UpdateOnScreenScore();
     }
 

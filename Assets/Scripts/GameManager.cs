@@ -1,11 +1,14 @@
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public float worldScrollingSpeed = 0.2f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private float score;
+    public TextMeshProUGUI scoreText;
+
     void Start()
     {
         if (instance == null)
@@ -14,9 +17,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        
+        score += worldScrollingSpeed * 20 * Time.fixedDeltaTime;
+        UpdateOnScreenScore();
+    }
+
+    void UpdateOnScreenScore()
+    {
+        scoreText.text = score.ToString("0");
     }
 }

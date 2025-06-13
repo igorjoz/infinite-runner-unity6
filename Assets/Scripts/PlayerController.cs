@@ -22,6 +22,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (!GameManager.instance.inGame)
+        {
+            return;
+        }
+
         if (IsGrounded() && Time.time >= timestamp)
         {
             if (jumped || doubleJumped)
@@ -66,5 +71,18 @@ public class PlayerController : MonoBehaviour
         );
 
         return hit.collider != null;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Obstacle"))
+        {
+            PlayerDeath();
+        }
+    }
+    void PlayerDeath()
+    {
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        GameManager.instance.GameOver();
     }
 }

@@ -7,6 +7,11 @@ public class FloorController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!GameManager.instance.inGame)
+        {
+            return;
+        }
+
         floorTiles1.transform.position -= new Vector3(GameManager.instance.worldScrollingSpeed, 0f, 0f);
         floorTiles2.transform.position -= new Vector3(GameManager.instance.worldScrollingSpeed, 0f, 0f);
 

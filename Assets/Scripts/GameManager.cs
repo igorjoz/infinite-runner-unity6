@@ -13,6 +13,30 @@ public class GameManager : MonoBehaviour
     public bool inGame;
     public GameObject resetButton;
 
+    private int coins;
+
+    public void CoinCollected(int value = 1)
+    {
+        coins += value;
+        PlayerPrefs.SetInt("Coins", coins);
+        Debug.Log(coins);
+    }
+
+    void InitializeGame()
+    {
+        inGame = true;
+
+        if (PlayerPrefs.HasKey("Coins"))
+        {
+            coins = PlayerPrefs.GetInt("Coins");
+        }
+        else
+        {
+            coins = 0;
+            PlayerPrefs.SetInt("Coins", 0);
+        }
+    }
+
     void Start()
     {
         if (instance == null)
@@ -21,11 +45,6 @@ public class GameManager : MonoBehaviour
         }
 
         InitializeGame();
-    }
-
-    void InitializeGame()
-    {
-        inGame = true;
     }
 
     private void FixedUpdate()

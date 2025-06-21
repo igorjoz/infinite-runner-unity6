@@ -340,7 +340,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2797863040465474789}
   - component: {fileID: 8481444933509484499}
-  - component: {fileID: 9043414788088634940}
+  - component: {fileID: 6781194819121847093}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Obstacle
@@ -421,8 +421,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &9043414788088634940
-PolygonCollider2D:
+--- !u!61 &6781194819121847093
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -455,7 +455,7 @@ PolygonCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.00177145, y: -0.0006994605}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -465,9 +465,5 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.5}
-      - {x: -0.4330127, y: -0.25000003}
-      - {x: 0.43301272, y: -0.24999996}
-  m_UseDelaunayMesh: 0
+  m_Size: {x: 1.949549, y: 0.2608924}
+  m_EdgeRadius: 0

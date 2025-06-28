@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject resetButton;
 
     private int coins;
+    public TMP_Text coinsText;
 
     public void CoinCollected(int value = 1)
     {
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviour
     void UpdateOnScreenScore()
     {
         scoreText.text = score.ToString("0");
+        coinsText.text = coins.ToString("0");
     }
 
     public void GameOver()

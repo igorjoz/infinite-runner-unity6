@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     private int coins;
     public TMP_Text coinsText;
 
+    public Immortality immortality;
+
     public void CoinCollected(int value = 1)
     {
         coins += value;
@@ -23,8 +25,43 @@ public class GameManager : MonoBehaviour
         Debug.Log(coins);
     }
 
+    public void ImmortalityCollected()
+    {
+        if (immortality.isActive)
+        {
+            CancelInvoke("CancelImmortality");
+            CancelImmortality();
+        }
+
+        immortality.isActive = true;
+        worldScrollingSpeed += immortality.GetSpeedBoost();
+
+        immortality.timeLeft = immortality.GetDuration();
+
+        Invoke("CancelImmortality", immortality.GetDuration());
+        InvokeRepeating("SubtractSecond", 0, 1);
+    }
+
+    private void SubtractSecond()
+    {
+        if (immortality.isActive)
+        {
+            immortality.timeLeft--;
+        }
+    }
+
+    private void CancelImmortality()
+    {
+        immortality.isActive = false;
+        worldScrollingSpeed -= immortality.GetSpeedBoost();
+
+        CancelInvoke("SubtractSecond");
+    }
+
     void InitializeGame()
     {
+        immortality.isActive = false;
+
         inGame = true;
 
         if (PlayerPrefs.HasKey("Coins"))

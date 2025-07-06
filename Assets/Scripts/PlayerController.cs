@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Obstacle"))
+        if (other.CompareTag("Obstacle") && !GameManager.instance.immortality.isActive)
         {
             PlayerDeath();
         }
@@ -83,6 +83,12 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Coin dotknięty");
             GameManager.instance.CoinCollected();
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("Immortality"))
+        {
+            Debug.Log("Immortality zebrane");
+            GameManager.instance.ImmortalityCollected();
             Destroy(other.gameObject);
         }
     }

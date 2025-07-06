@@ -5,6 +5,7 @@ public class Immortality : Powerup
 {
     [SerializeField]
     private PowerupStats speedBoost;
+    public float timeLeft;
 
     public float GetSpeedBoost()
     {

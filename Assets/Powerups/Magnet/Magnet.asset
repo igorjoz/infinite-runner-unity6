@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Magnet
   m_EditorClassIdentifier: 
   isActive: 0
-  duration: {fileID: 0}
-  range: {fileID: 0}
-  speed: {fileID: 0}
+  duration: {fileID: 11400000, guid: 982eca8656f654542b33f480a12d7926, type: 2}
+  UpgradeCosts: 0a0000003200000064000000
+  currentLevel: 1
+  maxLevel: 3
+  range: {fileID: 11400000, guid: ba024087fcf9cee4d8e27b89991ead54, type: 2}
+  speed: {fileID: 11400000, guid: 731c207576cffe44b9d37ac014486ae7, type: 2}

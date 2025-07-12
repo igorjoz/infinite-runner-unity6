@@ -1,14 +1,70 @@
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public TextMeshProUGUI highscoreValue;
+    public TextMeshProUGUI coinsValue;
+    public TextMeshProUGUI soundButtonText;
+
+    private int highscore = 0;
+    private int coins = 0;
+
+    public GameObject mainMenuPanel;
+    public GameObject upgradesStorePanel;
+
+    public TextMeshProUGUI magnetLevelText;
+    public TextMeshProUGUI magnetButtonText;
+
+    public TextMeshProUGUI immortalityLevelText;
+    public TextMeshProUGUI immortalityButtonText;
+
+    public Powerup magnet;
+    public Powerup immortality;
+
+
     void Start()
     {
-        
+        if (PlayerPrefs.HasKey("HighscoreValue"))
+        {
+            highscore = PlayerPrefs.GetInt("HighscoreValue");
+        }
+
+        if (PlayerPrefs.HasKey("CoinsValue"))
+        {
+            coins = PlayerPrefs.GetInt("CoinsValue");
+        }
+
+        UpdateUI();
     }
 
-    // Update is called once per frame
+    public void UpdateUI()
+    {
+        highscoreValue.text = highscore.ToString();
+        coinsValue.text = coins.ToString();
+
+        if (SoundManager.instance.GetMuted())
+        {
+            soundButtonText.text = "Music ON";
+        }
+        else
+        {
+            soundButtonText.text = "Music OFF";
+        }
+    }
+    public void PlayButtonClicked()
+    {
+        SceneManager.LoadScene("Game");
+    }
+    public void SoundButtonClicked()
+    {
+        SoundManager.instance.ToggleMuted();
+        UpdateUI();
+    }
+
+
     void Update()
     {
         

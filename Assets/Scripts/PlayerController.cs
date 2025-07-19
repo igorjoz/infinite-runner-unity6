@@ -44,11 +44,13 @@ public class PlayerController : MonoBehaviour
             {
                 rb.linearVelocity = (new Vector2(0f, jumpForce));
                 jumped = true;
+                SoundManager.instance.PlayOnceJump();
             }
             else if (!doubleJumped)
             {
                 rb.linearVelocity = (new Vector2(0f, jumpForce));
                 doubleJumped = true;
+                SoundManager.instance.PlayOnceJump();
             }
         }
 
@@ -84,6 +86,8 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Coin dotknięty");
             GameManager.instance.CoinCollected();
             Destroy(other.gameObject);
+
+            SoundManager.instance.PlayCoinGrab();
         }
         else if (other.CompareTag("Immortality"))
         {
